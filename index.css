@@ -1,0 +1,271 @@
+.body_panel{
+    margin-top: 0;
+    background-color: #cfd0cf;
+}
+
+
+
+.game_header{
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #434344;
+    font-size: 42px;
+    font-family: Arial, serif;
+    line-height: 47px;
+}
+
+
+
+.timer{
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 36px;
+    font-family: Arial, serif;
+    font-size: 32px;
+    color: #434344;
+}
+
+
+
+.game_canvas{
+    margin: 0 auto;
+    height: 440px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    perspective-origin: center 220px;
+    perspective: 600px;
+}
+
+
+.game_canvas .card_wrapper{
+    margin: 0 12.5px 25px 12.5px;
+    text-align: center;
+    width: 130px;
+    height: 130px;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: inline-block;
+    align-items: stretch;
+    transform-style: preserve-3d;
+    box-shadow: -1px -1px 5px rgba(0,0,0, 0.5);
+    border-radius: 9px;
+}
+
+
+.clicked{
+    animation-name: turn;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.unclicked{
+    animation-name: turnBack;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.wrong div.card_side_b{
+    background-color: #f44336;
+    border-color: #f44336;
+}
+
+.guessed div.card_side_b{
+    background-color: #5ad66f;
+    border-color: #5ad66f;
+}
+
+@keyframes turn {
+    0%{
+
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+}
+
+@keyframes turnBack {
+    0%{
+        transform: rotate3d(0, 1, 0, 180deg);
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 0);
+    }
+}
+
+
+
+
+.card_side_a{
+    width: 120px;
+    height: 120px;
+    margin-top: 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    border: 5px solid white;
+    background: linear-gradient(0.125turn, #22ab93, #19668d);
+    transform: translateZ(1px);
+
+}
+
+.card_side_b{
+
+    width: 120px;
+    height: 120px;
+    margin-top: 0;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    text-align: center;
+    font-size: 75px;
+    line-height: 180%;
+
+    border: 5px solid white;
+
+    background-color: white;
+    transform: translate(-5px, -135px) translateZ(-1px);
+}
+
+
+
+.background{
+    position: fixed;
+    width: 150vw;
+    height: 150vh;
+    background-color: rgba(0,0,0, 0.5);
+    transform: translate3d(-3vw, -100vh, 15px);
+    z-index: -1;
+    opacity: 0;
+}
+
+.game_lost{
+    min-width: 350px;
+    max-width: 450px;
+    min-height: 190px;
+    max-height: 210px;
+    background-color: white;
+    position: absolute;
+    transform-origin: center;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-50%, -50%, -20px);
+    z-index: -5;
+    opacity: 0;
+}
+
+.game_won{
+    min-width: 350px;
+    max-width: 450px;
+    min-height: 190px;
+    max-height: 210px;
+    background-color: white;
+    position: absolute;
+    transform-origin: center;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-50%, -50%, -10px);
+    z-index: 2;
+    opacity: 1;
+}
+
+
+.h1_caption{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #434344;
+    font-size: 48px;
+    font-family: Arial, serif;
+    line-height: 50px;
+}
+
+.play_again_button{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    min-width: 100px;
+    max-height: 40px;
+    height: 40px;
+    transform: translateX(-50%);
+    padding-left: 30px;
+    padding-right: 30px;
+    background: linear-gradient(0.125turn, #22ab93, #19668d);
+    border: 0;
+    box-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+}
+
+.play_again_button h1{
+    font-weight: normal;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, serif;
+    line-height: 22px;
+    transform: translateY(-5px);
+}
+
+.play_again_button:active{
+    box-shadow: inset 2px 1px 8px rgba(0,0,0, 0.5);
+}
+
+.h1_caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.h1_caption :nth-child(1){
+    animation-name: caption_zoomer;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.h1_caption :nth-child(2){
+    animation-name: caption_zoomer;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 100ms;
+}
+
+.h1_caption :nth-child(3){
+    animation-name: caption_zoomer;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 200ms;
+}
+.h1_caption :nth-child(4){
+    animation-name: caption_zoomer;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 300ms;
+}
+
+@keyframes caption_zoomer {
+    from{
+        transform: scaleY(0.7);
+    }
+    50%{
+        transform: scaleY(1.5);
+    }
+    to{
+        transform: scaleY(0.7);
+    }
+}
